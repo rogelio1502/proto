@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option php_namespace = "GRPC\\ListProducts";
+option php_metadata_namespace = "GRPC\\GPBMetadata";
+
+package list_products;
+
+message ProductRequest {}
+
+message Product {
+    string id = 1;
+    string name = 2;
+    float price = 3;
+}
+
+message ProductResponse {
+    repeated Product data = 1;
+}
+
+service ListProductsService {
+    rpc entrypoint (ProductRequest) returns (ProductResponse) {}
+  }
